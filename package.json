@@ -1,0 +1,62 @@
+{
+  "name": "@typhonjs-oclif/test-cli-experimental-modules",
+  "description": "Provides a test CLI for ESM changes to @oclif v2 against widest coverage of Node 12.0.0 - 15.x using --experimental-modules & CJS interop.",
+  "version": "0.0.0",
+  "private": true,
+  "author": "typhonrt",
+  "bin": {
+    "testcli-exp": "./bin/run.js"
+  },
+  "type": "module",
+  "bugs": "https://github.com/typhonjs-oclif/test-cli-experimental-modules/issues",
+  "dependencies": {
+    "@oclif/core": "git+https://github.com/typhonjs-oclif/core-esm.git"
+  },
+  "devDependencies": {
+    "@typhonjs-config/eslint-config": "^0.2.0",
+    "@typhonjs-oclif/test-cli-experimental-modules": "typhonjs-oclif/test-cli-experimental-modules",
+    "c8": "^7.6.0",
+    "chai": "^4.3.4",
+    "codecov": "^3.8.1",
+    "cross-spawn": "^7.0.3",
+    "eslint": "^7.22.0",
+    "mocha": "^8.3.2"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/typhonjs-oclif/test-cli-experimental-modules",
+  "keywords": [
+    "oclif",
+    "test",
+    "CLI",
+    "--experimental-modules"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./src/commands",
+    "hooks": {
+      "init": [
+        "./src/hooks/init/init"
+      ]
+    },
+    "bin": "testcli-exp"
+  },
+  "repository": "typhonjs-oclif/test-cli-experimental-modules",
+  "scripts": {
+    "run-local-*nix": "./bin/run.js test",
+    "run-local-windows": "cd bin/ && run.cmd test",
+    "run-npm-cli": "testcli-exp test",
+    "eslint": "eslint .",
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "npm run eslint",
+    "prepublishOnly": "oclif-dev manifest",
+    "test": "c8 --reporter=lcov --reporter=text-summary mocha -color \"test/src/**/*.test.js\" --timeout 8000"
+  }
+}
