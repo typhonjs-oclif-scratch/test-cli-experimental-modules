@@ -9,9 +9,15 @@ There are three test suites for ESM support for Oclif v2:
 
 This test CLI and Github Action CI / CD test suite covers the largest swath of Node versions starting at `12.0.0`. 
 
+A [discussion issue](https://github.com/oclif/core/issues/130) about ESM support is open on the `@oclif/core` repo.
+
 Click here to view the [latest Action CI / CD run](https://github.com/typhonjs-oclif/test-cli-experimental-modules/actions) 
 (requires a valid Github login). The test suite is run in a matrix support `macos-latest`, `ubuntu-latest`, `windows-latest`
 on Node versions `12.0.0`, `12.17.0`, `12.x`, `13.x`, `14.0.0`, `14.x`, `15.0.0` and `15.x`.
+
+All the test suites use a fork of [@oclif/core](https://github.com/oclif/core) that can be [found here](https://github.com/typhonjs-oclif-scratch/core-esm)
+and subsequently a compiled version with the lib directory committed to Github is [found here](https://github.com/typhonjs-oclif/core-esm).
+The latter Github repo is linked in `package.json` as `"@oclif/core": "git+https://github.com/typhonjs-oclif/core-esm.git"`.
 
 For testing the CLI is invoked locally, via NPM script (installed as a developer dependency), and installed as a global 
 dependency in the Github Action. 
@@ -58,7 +64,7 @@ about shebang arguments. Please refer to both of these sources for a more thorou
 
 The next area of note regarding a workaround is that until Node version `12.20.0+` and `14.13.0+` that one can not 
 import via standard ESM mechanisms named exports from CJS modules. Since Oclif is a CJS module one must import Oclif 
-as the entire package (as a default export). 
+as the entire package as a default export. 
 
 Instead of `import { Command } from '@oclif/core'` one must do the following `import oclif from '@oclif/core'` then 
 subsequently reference Command as `oclif.Command`.
