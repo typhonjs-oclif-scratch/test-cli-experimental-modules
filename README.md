@@ -1,4 +1,7 @@
 # test-cli-experimental-modules
+[![Build Status](https://github.com/typhonjs-oclif/test-cli-experimental-modules/workflows/CI/CD/badge.svg)](#)
+[![Coverage](https://img.shields.io/codecov/c/github/typhonjs-oclif/test-cli-experimental-modules.svg)](https://codecov.io/github/typhonjs-oclif/test-cli-experimental-modules)
+
 Provides a test CLI for ES Module (ESM) changes to @oclif v2 against the widest coverage of Node 12.0.0 - 15.x using 
 `--experimental-modules` & CommonJS (CJS) interop for named exports.
 
@@ -82,3 +85,13 @@ the CLI that has been installed via a Github link developer dependency and final
 CLI is installed globally it is invoked as well. These tests cover all execution possibilities for the CLI across
 MacOS, Ubuntu, and Windows and a wide range of Node versions proving it is possible to create an ESM Oclif CLI that 
 can run on Node `12.0.0+`.
+
+----
+### Code Coverage
+
+[nyc](https://www.npmjs.com/package/nyc) does not support code coverage for ESM based tests in Mocha presently. The 
+solution is to use [c8](https://www.npmjs.com/package/c8) which does work with ESM tests and is a drop in replacement 
+for `nyc`. This repo uses Codecov to publish a [coverage report](https://codecov.io/github/typhonjs-oclif/test-cli-experimental-modules) 
+in the GH Action. When running tests locally a `./coverage` directory is created that contains the coverage report. As 
+can be seen in the report full coverage of both the CLI command / init files and bin bootstrap occurs. 
+
