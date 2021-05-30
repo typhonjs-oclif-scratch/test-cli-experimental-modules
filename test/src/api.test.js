@@ -1,4 +1,3 @@
-import oclif               from '@oclif/core';
 import fancy               from 'fancy-test';
 import { assert, expect }  from 'chai';
 
@@ -11,7 +10,7 @@ describe('Programmatic (API):', () =>
 {
    it('bad command (shows how to use chai-as-promised)', async () =>
    {
-      await expect(testcli('bad')).to.be.rejectedWith(oclif.Errors.CLIError, 'command bad not found');
+      await expect(testcli('bad')).to.be.rejectedWith(Error, 'command bad not found');
    });
 
    fancy.fancy
