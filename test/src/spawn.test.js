@@ -2,6 +2,9 @@ import spawn      from 'cross-spawn';
 
 import { assert } from 'chai';
 
+/**
+ * This test spawns the local CLI
+ */
 describe('Test CLI', () =>
 {
    it('run local CLI - command test', async () =>
@@ -14,32 +17,6 @@ describe('Test CLI', () =>
 
       assert(data, 'ran init hook\nran test command');
    });
-
-   it('run NPM CLI - command test', async () =>
-   {
-      let data = '';
-      const cli = spawn('npm', ['run', 'run-npm-cli', 'test'], { shell: true });
-      cli.stdout.on('data', (chunk) => { data += chunk; });
-
-      await onExit(cli);
-
-      assert(data, 'ran init hook\nran test command');
-   });
-
-   // Only run in CI when testcli-exp is installed globally.
-   if (process.env.CI)
-   {
-      it('run global CLI - command test', async () =>
-      {
-         let data = '';
-         const cli = spawn('testcli-exp', ['test'], { shell: true });
-         cli.stdout.on('data', (chunk) => { data += chunk; });
-
-         await onExit(cli);
-
-         assert(data, 'ran init hook\nran test command');
-      });
-   }
 });
 
 /**
