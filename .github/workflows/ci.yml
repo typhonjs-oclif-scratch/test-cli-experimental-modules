@@ -29,27 +29,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install CLI globally
-        run: npm install -g typhonjs-oclif/test-cli-experimental-modules
-
       # Specifically load `esm` separately to run ESM Mocha tests for 12.0.0
       - name: Install esm
         run: npm install esm
-
-      - name: Run local CLI (macOS / ubuntu)
-        if: ${{ matrix.os != 'windows-latest' }}
-        run: ./bin/run.js test
-
-      - name: Run local CLI (windows)
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: cd bin/ && run.cmd test
-        shell: cmd
-
-      - name: Run NPM CLI
-        run: npm run run-npm-cli
-
-      - name: Run Global CLI
-        run: testcli-exp test
 
       # Note: `-- --require esm` only adds `esm` to mocha in the GH Action.
       - name: Run the tests
@@ -61,7 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [12.17.0, 12.x, 13.x, 14.0.0, 14.x, 15.0.0, 15.x]
+        node-version: [12.17.0, 12.x, 14.0.0, 14.x, 16.0.0, 16.x]
 
     runs-on: ${{ matrix.os }}
 
@@ -76,24 +58,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Install CLI globally
-        run: npm install -g typhonjs-oclif/test-cli-experimental-modules
-
-      - name: Run local CLI (macOS / ubuntu)
-        if: ${{ matrix.os != 'windows-latest' }}
-        run: ./bin/run.js test
-
-      - name: Run local CLI (windows)
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: cd bin/ && run.cmd test
-        shell: cmd
-
-      - name: Run NPM CLI
-        run: npm run run-npm-cli
-
-      - name: Run Global CLI
-        run: testcli-exp test
 
       - name: Run Tests
         run: npm test
