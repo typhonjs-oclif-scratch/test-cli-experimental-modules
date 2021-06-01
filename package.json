@@ -18,6 +18,7 @@
     "@oclif/core": "^0.5.0"
   },
   "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
     "@typhonjs-config/eslint-config": "^0.2.0",
     "c8": "^7.7.2",
     "chai": "^4.3.4",
