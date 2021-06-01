@@ -59,7 +59,6 @@
   "scripts": {
     "run-local-*nix": "./bin/run.js test",
     "run-local-windows": "cd bin/ && run.cmd test",
-    "run-npm-cli": "testcli-exp test",
     "eslint": "eslint .",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "npm run eslint",
