@@ -22,8 +22,9 @@ on Node versions `12.0.0`, `12.17.0`, `12.x`, `14.0.0`, `14.x`, `16.0.0` and `16
 
 All the test suites use a [@oclif/core](https://github.com/oclif/core) 0.5.10+ 
 
-For testing the CLI is invoked locally and programmatically with tests demonstrating [fancy-test](https://www.npmjs.com/package/fancy-test) 
-and use of [chai-as-promised](https://www.npmjs.com/package/chai-as-promised).
+For testing the CLI is invoked locally via cross-spawn only. This is a limitation due to ESM tests via the `esm` module 
+on Node `12.0.0`. Please see `test-cli-modern` and `test-cli-cjs-interop` for examples on API / programmatic tests that
+run on Node `12.17.0+`.
 
 It should be noted that everything is ESM from the test CLI to the test suite itself. Most of the complications w/ ESM 
 revolves around support in Mocha for Node versions that require `--experimental-modules` (`12.0 - 12.16`). This is due 
@@ -36,10 +37,11 @@ for Node prior to `12.17.0` and [build-node](https://github.com/typhonjs-oclif-s
 for Node versions `12.17.0` and higher. 
 
 This test suite demonstrates that it is possible to launch an Oclif ESM CLI with very wide support for the Node 
-ecosystem version `12.0.0+`, however for practical purposes the `modern` version for Node `12.20.0+` & `14.13.0+` is 
-the recommended solution for Oclif v2. It is not likely that the Oclif CLI / project generator should support this 
---experimental-modules version, but is made available as a proof of concept and guide for anyone who manually wishes
-to work with such a configuration. 
+ecosystem version `12.0.0+`, however for practical purposes the `test-cli-cjs-interop` for Node 12.17+ or 
+`test-cli-modern` version for Node `12.20.0+` & `14.13.0+` is the recommended solution for Oclif v2. It is not likely 
+that the Oclif CLI / project generator should support this --experimental-modules version, but is made available as a 
+proof of concept and guide for anyone who manually wishes to work with such a configuration and absolutely support 
+Node `12.0.0+`.
 
 ----
 ### Bin / Bootstrap
