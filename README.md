@@ -20,7 +20,7 @@ Click here to view the [latest Action CI / CD run](https://github.com/typhonjs-o
 (requires a valid Github login). The test suite is run in a matrix support `macos-latest`, `ubuntu-latest`, `windows-latest`
 on Node versions `12.0.0`, `12.17.0`, `12.x`, `14.0.0`, `14.x`, `16.0.0` and `16.x`.
 
-All the test suites use a [@oclif/core](https://github.com/oclif/core) 0.5.10+ 
+All the test suites use [@oclif/core](https://github.com/oclif/core) `0.5.10+`.
 
 For testing the CLI is invoked locally via cross-spawn only. This is a limitation due to ESM tests via the `esm` module 
 on Node `12.0.0`. Please see `test-cli-modern` and `test-cli-cjs-interop` for examples on API / programmatic tests that
