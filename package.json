@@ -13,7 +13,7 @@
     "testcli-exp": "./bin/run.js"
   },
   "type": "module",
-  "bugs": "https://github.com/typhonjs-oclif/test-cli-experimental-modules/issues",
+  "bugs": "https://github.com/typhonjs-oclif-scratch/test-cli-experimental-modules/issues",
   "dependencies": {
     "@oclif/core": "^0.5.0"
   },
@@ -38,7 +38,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/typhonjs-oclif/test-cli-experimental-modules",
+  "homepage": "https://github.com/typhonjs-oclif-scratch/test-cli-experimental-modules#readme",
   "keywords": [
     "oclif",
     "test",
@@ -55,7 +55,7 @@
     },
     "bin": "testcli-exp"
   },
-  "repository": "typhonjs-oclif/test-cli-experimental-modules",
+  "repository": "github:typhonjs-oclif-scratch/test-cli-experimental-modules",
   "scripts": {
     "run-local-*nix": "./bin/run.js test",
     "run-local-windows": "cd bin/ && run.cmd test",
