@@ -81,7 +81,7 @@ For more information on CJS named exports please see this [Node / Modules issue]
 
 Since Mocha can not be invoked with `--experimental-modules` and the public `@oclif/test` testing tools for Oclif is not 
 updated for v2 with the ESM additions to `@oclif/core`, and the test source is ESM itself the tests must be conducted 
-by using spawn and invoking the bootstrap code. To accomplish this cross platform with Windows [cross-spawn](https://www.npmjs.com/package/cross-spawn)
+by using spawn and invoking the bootstrap code. To accomplish this cross-platform with Windows [cross-spawn](https://www.npmjs.com/package/cross-spawn)
 is utilized. The local bootstrap code, `./bin/run.js` is invoked. 
 
 ----
